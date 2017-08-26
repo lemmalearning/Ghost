@@ -17,6 +17,10 @@ errors = require('./core/server/errors');
 utils = require('./core/server/utils');
 parentApp = express();
 
+// For access through a load balancer / nginx and health checks
+parentApp.set('trust proxy', true);
+parentApp.use('/healthz', (req, res) => req.status(200).end());
+
 debug('Initialising Ghost');
 ghost().then(function (ghostServer) {
     // Mount our Ghost instance on our desired subdirectory path if it exists.
