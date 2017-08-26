@@ -3,4 +3,4 @@
 	url = https://github.com/lemmalearning/Casper.git
 [submodule "core/client"]
 	path = core/client
-	url = https://github.com/TryGhost/Ghost-Admin.git
+	url = https://github.com/lemmalearning/Ghost-Admin.git

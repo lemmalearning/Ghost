@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm -rf core/built
+rm -rf core/client/dist
 
 grunt prod
 
