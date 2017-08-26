@@ -1,0 +1,9 @@
+steps:
+- name: gcr.io/cloud-builders/git
+  args: ['submodule', 'update', '--init']
+- name: 'gcr.io/cloud-builders/nodejs/yarn'
+  args: ['install', '--production']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/ghost:$COMMIT_SHA', '-f', 'Dockerfile', '.']
+
+images: ['gcr.io/$PROJECT_ID/ghost:$COMMIT_SHA']
